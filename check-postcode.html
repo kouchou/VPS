@@ -5,6 +5,13 @@
   <title>郵便番号</title>
 </head>
 <body>
+  <div class="main">
+    <form action="" method="post">
+      <p>郵便番号を入力してください（例：000-0000）</p>
+      <input type="text" placeholder="郵便番号">
+      <button type="submit">決定</button>
+    </form>
+  </div>
   <script>
     var checkPostcode = function (postcode) {
     if (String(postcode).match(/^[0-9]{3}\-[0-9]{4}$/) !== null) {
