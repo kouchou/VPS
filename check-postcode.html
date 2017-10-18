@@ -3,22 +3,37 @@
 <head>
   <meta charset="UTF-8">
   <title>郵便番号</title>
+  <link rel="stylesheet" href="reset.css">
+  <script src="jquery.js"></script>
+  <style>
+    .alert {
+      color: #e07a7a;
+      display: none;
+    }
+  </style>
 </head>
 <body>
+  <div class="main">
+    <form action="" method="post">
+      <p>郵便番号を入力してください（例：000-0000）</p>
+      <input type="text" name="postcode" class="input-postcode" placeholder="郵便番号">
+      <button type="button" name="submit" value="submit">決定</button>
+      <link rel="stylesheet" href="">
+    </form>
+    <p class="alert">error: 正しい形式で入力してください</p>
+  </div>
   <script>
-    var checkPostcode = function (postcode) {
-    if (String(postcode).match(/^[0-9]{3}\-[0-9]{4}$/) !== null) {
+    $("button").on("click", function () {
+      var postcode = $(".input-postcode").val();
+      console.log(postcode);
+      if (String(postcode).match(/^[0-9]{3}\-[0-9]{4}$/) !== null) {
         console.log("正しい郵便番号です");
+        $(".alert").hide();
       } else {
         console.log("正しい郵便番号ではありません");
+        $(".alert").show();
       }
-    };
-    
-    var removeNumber = function (postcode) {
-      console.log( 
-        String(postcode).replace(/[1-9]+/g, "")
-      );
-    };
+    });
   </script>
 </body>
 </html>
