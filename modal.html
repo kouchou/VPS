@@ -145,10 +145,7 @@
     $(".c-button--show-modal").on("click", function () {
       $(".c-modal").css("display", "flex");
     });
-    $(".c-modal").on("click", function () {
-      $(".c-modal").css("display", "none");
-    });
-    $(".c-modal__close").on("click", function () {
+    $(".c-modal, .c-modal__close").on("click", function () {
       $(".c-modal").css("display", "none");
     });
     $(".c-modal__main").on("click", function(event) {
