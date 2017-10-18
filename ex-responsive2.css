@@ -1,0 +1,26 @@
+.main {
+  display: flex;
+  flex-direction: column;
+}
+.c-box {
+  flex-grow: 1;
+  height: 300px;
+  border: 2px solid #ccc;
+  background-color: #f0f0f0;
+  text-align: center;
+  line-height: 300px;
+  font-size: 100px;
+  color: #999;
+}
+.c-box:nth-child(even) {
+  display: none;
+}
+
+@media screen and (min-width: 1024px) {
+  .main {
+    flex-direction: row;
+  }
+  .c-box:nth-child(even) {
+    display: block;
+  }
+}

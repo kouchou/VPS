@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>モーダル</title>
+  <script src="jquery.js"></script>
+  <link rel="stylesheet" href="reset.css">
+  <style>
+    html, body { width: 100%; height: 100%; }
+    body {
+      position: relative;
+    }
+    p {
+      word-wrap: break-word;
+    }
+    .u-none {
+      display: none;
+    }
+    .article {
+      margin: 30px auto;
+      padding: 20px;
+      box-sizing: border-box;
+      width: 600px;
+      border-top: 1px solid #ccc;
+      border-bottom: 1px solid #ccc;
+    }
+    .c-button {
+      padding: 0 18px;
+      box-sizing: border-box;
+      height: 40px;
+      line-height: 40px;
+      font-size: 16px;
+      text-align: center;
+      color: #999;
+      border: 1px solid #eee;
+      border-radius: 20px;
+      background-color: white;
+      cursor: pointer;
+    }
+    .c-button--show-modal {
+      margin: 0 auto;
+      width: 180px;
+    }
+    .c-button:hover {
+      border: 1px solid #bbb;
+      color: #666;
+    }
+    .c-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      display: none;
+      justify-content: center;
+      align-items:center;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.2);
+      z-index: 9999;
+    }
+    .c-modal__main {
+      position: relative;
+      box-sizing: border-box;
+      width: 600px;
+      height: 220px;
+      border: 1px solid #eee;
+      border-radius: 5px;
+      background-color: #e9f5f9;
+    }
+    .c-modal__header {
+      height: 45px;
+      line-height: 45px;
+      text-align: center;
+      background-color: white;
+      font-size: 18px;
+    }
+    .c-modal__close {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      width: 25px;
+      heigh: 25px;
+      font-size: 25px;
+      line-height: 25px;
+      text-align: center;
+      color: #aaa;
+      cursor: pointer;
+    }
+    .c-modal__form {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      box-sizing: border-box;
+      padding: 20px 15px;
+      border-top: 1px solid #cbe6f1;
+    }
+    .c-modal__textarea {
+      margin-bottom: 8px;
+      padding: 10px;
+      border: 1px solid #eee;
+      border-radius: 10px;
+      width: 100%;
+      height: 90px;
+      color: #333;
+      resize: none;
+    }
+    .c-modal__textarea:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px #a4d5e7;
+      border: 1px solid #e9f5f9;
+    }
+    .c-button--submit {
+      background-color: #bbe0ed;
+      color: white;
+      border: none;
+    }
+    .c-button--submit:focus {
+      outline: none;
+    }
+    .c-button--submit:hover {
+      border: none;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="c-button c-button--show-modal">
+    モーダル表示
+  </div>
+  <article class="article">
+    <p>
+      SampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleTextSampleText
+    </p>
+  </article>
+  <div class="c-modal u-fix">
+    <div class="c-modal__main">
+      <header class="c-modal__header">ツイートする</header>
+      <div class="c-modal__close">×</div>
+      <form action="" method="post" class="c-modal__form">
+        <textarea class="c-modal__textarea" placeholder="いまどうしてる？"></textarea>
+        <button type="submit" class="c-button c-button--submit">ツイート</button>
+      </form>
+    </div>
+  </div>
+  <script>
+    $(".c-button--show-modal").on("click", function () {
+      $(".c-modal").css("display", "flex");
+    });
+    $(".c-modal").on("click", function () {
+      $(".c-modal").css("display", "none");
+    });
+    $(".c-modal__close").on("click", function () {
+      $(".c-modal").css("display", "none");
+    });
+    $(".c-modal__main").on("click", function(event) {
+      event.stopPropagation();
+    });
+  </script>
+</body>
+</html>
